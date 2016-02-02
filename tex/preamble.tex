@@ -1,11 +1,30 @@
-\documentclass[xcolor=x11names,compress]{beamer}
+\documentclass[aspectratio=43,xcolor=x11names,compress]{beamer}
 
 %---------------------------------------------------------------------------------------------------
 % Beamer configuration
 %---------------------------------------------------------------------------------------------------
 
+\usepackage{etoolbox}
+
+\newtoggle{safetymargin}
+\togglefalse{safetymargin}
+
+\iftoggle{safetymargin}{
+	\geometry{paperwidth=128mm,paperheight=96mm}
+	\usepackage[width=138mm,height=106mm,frame,noinfo]{crop}
+	\voffset\stockheight
+	\advance\voffset-\paperheight
+	\voffset.5\voffset
+	\hoffset\stockwidth
+	\advance\hoffset-\paperwidth
+	\hoffset.5\hoffset
+}
+
+
 \setbeamertemplate{footline}[page number]{}
+\setbeamerfont{footline}{size=\fontsize{8}{10}\selectfont}
 \setbeamertemplate{navigation symbols}{}
+\setbeamertemplate{caption}[numbered]
 
 \useoutertheme[subsection=false,shadow]{miniframes}
 \useinnertheme{default}
@@ -28,6 +47,8 @@
 \newcommand{\<}[1]{\begin{column}{#1}}
 	\renewcommand{\>}{\end{column}}
 
+%\setbeamersize{text margin left=10mm}
+%\setbeamersize{sidebar width left=5mm}
 
 
 %---------------------------------------------------------------------------------------------------
@@ -51,13 +72,9 @@
 \usepackage{url}
 \usepackage{hyperref}
 \usepackage[capitalise,noabbrev,nameinlink]{cleveref}
-\crefname{section}{Sect.}{Sect.}
-\Crefname{section}{Section}{Sections}
-\crefname{figure}{Fig.}{Fig.}
-\Crefname{figure}{Figure}{Figures}
 \usepackage[nonumberlist,acronym,nomain,nowarn]{glossaries}
 \usepackage[gen]{eurosym}
-\usepackage{etoolbox}
+\usepackage[center]{caption}
 \glsdisablehyper
 \makeglossaries
 
@@ -65,4 +82,4 @@
 \g@addto@macro{\UrlBreaks}{\UrlOrds}
 \makeatother
 
-\overfullrule=3mm
+%\overfullrule=3mm
