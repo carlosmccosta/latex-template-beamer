@@ -30,8 +30,12 @@
 \useinnertheme{default}
 \usefonttheme{serif}
 
+\setbeamerfont{section in toc}{size=\small}
+\setbeamerfont{subsection in toc}{size=\footnotesize}
 \setbeamerfont{title like}{shape=\scshape}
 \setbeamerfont{frametitle}{shape=\scshape}
+\setbeamerfont{footnote}{size=\scriptsize}
+\setbeamerfont{caption}{size=\scriptsize}
 
 \setbeamercolor*{lower separation line head}{bg=DeepSkyBlue4}
 \setbeamercolor*{normal text}{fg=black,bg=white}
@@ -75,11 +79,20 @@
 \usepackage[nonumberlist,acronym,nomain,nowarn]{glossaries}
 \usepackage[gen]{eurosym}
 \usepackage[center]{caption}
+\usepackage[backend=bibtex]{biblatex}
+\captionsetup{font=footnotesize,labelfont=footnotesize}
+\captionsetup[figure]{name=Fig.,indention=0pt}
 \glsdisablehyper
 \makeglossaries
 
 \makeatletter
 \g@addto@macro{\UrlBreaks}{\UrlOrds}
 \makeatother
+
+\setlength{\tabulinesep}{0.15em}
+\setlength{\tabcolsep}{0.15em}
+\setlength{\extrarowsep}{0.03em}
+
+\bibliography{references}
 
 %\overfullrule=3mm
